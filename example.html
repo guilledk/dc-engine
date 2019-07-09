@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+	<body style="background-color: #222"></body>
+	<script type="text/javascript" src="engine.js"></script>
+	<script type="text/javascript">
+
+		function start() {
+			PREFERED_VIEWPORT_SIZE = new vec2(800, 600);
+			console.log("started")
+
+			PHYSICS_SYSTEMS.push(new psystem());
+			PHYSICS_SYSTEMS[0].pobjs.push(
+				new pobject(
+					null,
+					new rect(
+						new vec2(200, 20),
+						new vec2(30, 100)
+						),
+					0
+					)
+				);
+		}
+
+		function update(delta) {
+
+		}
+
+		function postdraw(ctx) {
+			PHYSICS_SYSTEMS[0].pobjs[0].draw(ctx);
+		}
+
+		window.addEventListener('load', function(event){
+			DEBUG = true;
+			dce_setup_canvas(800, 600);
+			dce_init(
+				start,
+				{
+					img_mario: "example.jpeg"
+				},
+				null,
+				update,
+				null,
+				postdraw
+				);
+		});
+
+	</script>
+</html>

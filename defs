@@ -1,0 +1,34 @@
+
+//rng
+dce_random() -> float
+dce_random_int(max) -> int
+dce_random_range(from, to) -> int
+
+// drawing primitives
+dce_gfx_draw_line(ctx, x1, y1, x2, y2, w, _color = "#FFF")
+dce_gfx_draw_rect(ctx, x, y, w, h, lcolor, _fcolor = "#0000", _linew = 1)
+dce_gfx_draw_text(ctx, txt, x, y, font, color, _center = false)
+dce_gfx_debug_object(ctx, obj)
+
+// objects
+vec2(x, y)
+rect(_pos = vec2.zero, _dim = vec2.zero, _lcolor = "#FFF", _fcolor = "#0000")
+sprite(pos, img, scale, _hidden = false)
+text = function(txt, pos, size, type, color, _center = true, _hidden = false)
+
+dce_attach_canvas(cid, ccid)
+dce_setup_canvas(cwidth, cheight)
+dce_recalculate_dimensions(w, h)
+
+// engine internals
+dce_draw(timestamp)
+dce_update()
+dce_launch(_usr_start_cb, _usr_awake_cb = null)
+dce_init(
+	_usr_start_cb, 
+	resource_manifest = {},
+	_usr_awake_cb = null,
+	_usr_update_cb = null,
+	_usr_predraw_cb = null,
+	_usr_postdraw_cb = null
+	)
